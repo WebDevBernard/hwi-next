@@ -6,18 +6,12 @@ export function QuoteSection({ data }: { readonly data: QuoteSectionProps }) {
   return (
     <div className="">
       {data && (
-        <section className="container mx-auto md:px-6 lg:py-12">
-          <h2 className="flex px-4 py-12 justify-center items-center text-2xl font-bold">
-            {data.heading}
-          </h2>
-          <p className="flex mx-[30%] px-4  justify-center items-center text-sm text-cente">
-            {data.subHeading}
-          </p>
-          <div className="flex px-4 py-12 justify-center items-center">
+        <section className="lg:mx-[30%] px-6 my-24 text-center">
+          <h2 className=" text-2xl font-bold mb-6">{data.heading}</h2>
+          <p className=" text-gray-500 text-sm ">{data.subHeading}</p>
+          <div className="my-12">
             <Link href={`http://localhost:1337${data.ctaButton.url}`}>
-              <button className=" bg-[#4478ff] inline-block px-9 py-2 uppercase rounded-3xl cursor-pointer text-white text-sm hover:bg-slate-200">
-                {data.ctaButton.name}
-              </button>
+              <button className="btn-primary">{data.ctaButton.name}</button>
             </Link>
           </div>
         </section>

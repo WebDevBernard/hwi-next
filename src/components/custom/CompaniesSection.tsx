@@ -32,16 +32,14 @@ export function CompaniesSection({
   readonly data: CompaniesSectionProps;
   readonly isMobile: boolean;
 }) {
-  // console.dir(data.carousel, { depth: null });
-  console.log(isMobile);
   return (
-    <div className="bg-[#f2f1ee]">
+    <div className="bg-primary">
       {data && (
-        <section className="container mx-auto md:px-6 lg:py-12">
-          <h2 className="flex px-4 py-4 justify-center items-center text-2xl font-bold">
+        <section className="px-6 py-8">
+          <h2 className="flex px-4 justify-center items-center text-2xl font-bold">
             {data.heading}
           </h2>
-          <div className="flex  py-12 justify-center items-center">
+          <div className="py-12">
             <Carousel
               deviceType={isMobile ? true : false}
               ssr={true}
@@ -55,6 +53,7 @@ export function CompaniesSection({
               {data.carousel.data.map((img) => (
                 <div key={img.id}>
                   <Image
+                    className="pointer-events-none"
                     alt={img.name || "None"}
                     src={`http://localhost:1337${img.url}`}
                     height={150}

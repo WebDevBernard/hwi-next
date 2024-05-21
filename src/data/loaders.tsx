@@ -70,12 +70,16 @@ export async function getGlobalData() {
       },
       footer: {
         populate: {
-          logoText: {
-            populate: {
-              icon: {
-                fields: ["name", "url"],
-              },
-            },
+          icon: {
+            fields: ["name", "url"],
+          },
+          hoursLocation: true,
+        },
+      },
+      menuHeadings: {
+        populate: {
+          subMenuHeadings: {
+            populate: ["name", "url"],
           },
         },
       },

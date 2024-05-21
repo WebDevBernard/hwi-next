@@ -1,14 +1,10 @@
-export interface ImageProps {
+interface ImageProps {
   id: number;
   url: string;
   name: string | null;
 }
 
-export interface CarouselImageProps {
-  data: ImageProps[];
-}
-
-export interface LinkProps {
+interface LinkProps {
   id: number;
   name: string;
   url: string;
@@ -19,6 +15,7 @@ export interface HeroSectionProps {
   __component: string;
   heading: string;
   subHeading: string;
+  subSubHeading: string;
   image: ImageProps;
   ctaButton: LinkProps[];
 }
@@ -51,32 +48,54 @@ export interface CompaniesSectionProps {
   __component: string;
   heading: string;
   subHeading: string;
-  carousel: CarouselImageProps;
+  carousel: { data: ImageProps[] };
 }
 
 export interface HeaderProps {
   data: {
     logoText: {
       id: number;
-      text: string;
+      name: string;
       icon: ImageProps;
       url: string;
     };
     ctaButton: {
       id: number;
-      text: string;
+      name: string;
       url: string;
     };
   };
 }
 
+export interface MenuProps {
+  menu: {
+    id: number;
+    title: string;
+    subMenuHeadings: {
+      id: number;
+      name: string;
+      url: string;
+    }[];
+  }[];
+}
+
+interface HoursLocationProps {
+  id: number;
+  locationName: string;
+  address: string;
+  phoneNumber: string;
+  monFri: string;
+  sat: string;
+  sun: string;
+}
+
 export interface FooterProps {
   data: {
-    logoText: {
-      id: number;
-      text: string;
-      icon: ImageProps;
-    };
-    text: string;
+    heading: string;
+    subHeading: string;
+    copyright: string;
+    locationHeading: string;
+    hoursLocation: HoursLocationProps[];
+    icon: ImageProps;
   };
 }
