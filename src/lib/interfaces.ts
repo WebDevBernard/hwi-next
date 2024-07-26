@@ -64,6 +64,10 @@ export interface HeaderProps {
       name: string;
       url: string;
     };
+    hamburgerMenu: {
+      name: string;
+      icon: ImageProps;
+    };
   };
 }
 

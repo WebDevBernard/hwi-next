@@ -3,9 +3,7 @@ import { HeroSection } from "@/components/custom/HeroSection";
 import { FeatureSection } from "@/components/custom/FeatureSection";
 import { QuoteSection } from "@/components/custom/QuoteSection";
 import { CompaniesSection } from "@/components/custom/CompaniesSection";
-import { isMobileDevice } from "@/lib/isMobileDevice";
 
-const mobile = isMobileDevice();
 function blockRenderer(block: any) {
   switch (block.__component) {
     case "layout.hero-section":
@@ -15,9 +13,7 @@ function blockRenderer(block: any) {
     case "layout.quote-section":
       return <QuoteSection key={block.id} data={block} />;
     case "layout.companies-section":
-      return (
-        <CompaniesSection key={block.id} data={block} isMobile={mobile.value} />
-      );
+      return <CompaniesSection key={block.id} data={block} />;
     default:
       return null;
   }

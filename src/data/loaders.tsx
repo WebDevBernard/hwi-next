@@ -1,5 +1,5 @@
 import qs from "qs";
-import { flattenAttributes, getStrapiURL } from "@/lib/utils";
+import { flattenAttributes, getStrapiURL } from "@/lib/getStrapiUrl";
 
 const baseUrl = getStrapiURL();
 
@@ -65,6 +65,13 @@ export async function getGlobalData() {
           },
           ctaButton: {
             populate: false,
+          },
+          hamburgerMenu: {
+            populate: {
+              icon: {
+                fields: ["name", "url"],
+              },
+            },
           },
         },
       },

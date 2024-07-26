@@ -10,6 +10,6 @@
   @apply text-nowrap outline outline-1 outline-secondary px-9 py-2 uppercase rounded-3xl cursor-pointer text-[#4478ff] text-sm hover:bg-slate-200;
 }
 
-/* .input {
+.input {
   @apply placeholder:text-xs placeholder:uppercase text-sm tracking-wide focus:border-2 w-full p-2 focus:rounded-md border-black border-[1px] outline-none;
-} */
+}
