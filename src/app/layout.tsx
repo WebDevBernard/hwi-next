@@ -4,14 +4,18 @@ import "./globals.css";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
-import { getGlobalData } from "@/data/loaders";
+import { getGlobalData, getGlobalPageMetadata } from "@/data/loaders";
 import { Header } from "@/components/custom/Header";
 import { Footer } from "@/components/custom/Footer";
 
-export const metadata: Metadata = {
-  title: "Horizon West Insurance",
-  description: "Insurance Services",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const metadata = await getGlobalPageMetadata();
+
+  return {
+    title: metadata?.title,
+    description: metadata.description,
+  };
+}
 
 export default async function RootLayout({
   children,

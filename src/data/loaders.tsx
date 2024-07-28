@@ -1,5 +1,5 @@
 import qs from "qs";
-import { flattenAttributes, getStrapiURL } from "@/lib/getStrapiUrl";
+import { flattenAttributes, getStrapiURL } from "@/lib/utils";
 
 const baseUrl = getStrapiURL();
 
@@ -51,7 +51,6 @@ export async function getHomePageData() {
 // responsible for fetching the header and footer links
 export async function getGlobalData() {
   const url = new URL("/api/global", baseUrl);
-
   url.search = qs.stringify({
     populate: {
       header: {
@@ -91,6 +90,16 @@ export async function getGlobalData() {
         },
       },
     },
+  });
+
+  return await fetchData(url.href);
+}
+
+export async function getGlobalPageMetadata() {
+  const url = new URL("/api/global", baseUrl);
+
+  url.search = qs.stringify({
+    fields: ["title", "description"],
   });
 
   return await fetchData(url.href);

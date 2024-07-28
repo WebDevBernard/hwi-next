@@ -15,7 +15,6 @@ export interface HeroSectionProps {
   __component: string;
   heading: string;
   subHeading: string;
-  subSubHeading: string;
   image: ImageProps;
   ctaButton: LinkProps[];
 }
@@ -43,7 +42,7 @@ export interface QuoteSectionProps {
   ctaButton: LinkProps;
 }
 
-export interface CompaniesSectionProps {
+export interface CarouselSectionProps {
   id: number;
   __component: string;
   heading: string;
@@ -63,10 +62,6 @@ export interface HeaderProps {
       id: number;
       name: string;
       url: string;
-    };
-    hamburgerMenu: {
-      name: string;
-      icon: ImageProps;
     };
   };
 }

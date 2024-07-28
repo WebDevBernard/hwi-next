@@ -2,7 +2,7 @@ import { getHomePageData } from "@/data/loaders";
 import { HeroSection } from "@/components/custom/HeroSection";
 import { FeatureSection } from "@/components/custom/FeatureSection";
 import { QuoteSection } from "@/components/custom/QuoteSection";
-import { CompaniesSection } from "@/components/custom/CompaniesSection";
+import { CarouselSection } from "@/components/custom/CarouselSection";
 
 function blockRenderer(block: any) {
   switch (block.__component) {
@@ -13,7 +13,7 @@ function blockRenderer(block: any) {
     case "layout.quote-section":
       return <QuoteSection key={block.id} data={block} />;
     case "layout.companies-section":
-      return <CompaniesSection key={block.id} data={block} />;
+      return <CarouselSection key={block.id} data={block} />;
     default:
       return null;
   }

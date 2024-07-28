@@ -1,4 +1,3 @@
-// https://github.com/shadcn-ui/ui/blob/main/apps/www/hooks/use-media-query.tsx
 import * as React from "react";
 
 export function useMediaQuery(query: string) {
