@@ -1,26 +1,36 @@
-// https://medium.com/@descometusah/mastering-dialog-components-in-shadcn-ui-library-9420ac736b9e
-import { create } from "zustand";
+"use client";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface DialogProps {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
   data: any;
-  setData(data: any): void;
+  setData: (data: any) => void;
 }
 
-export const useDialog = create<DialogProps>((set) => ({
-  isOpen: false,
-  onOpen: () => set({ isOpen: true }),
-  onClose: () => set({ isOpen: false }),
-  data: {},
-  setData: (data) => set({ data: { data } }),
-}));
+const DialogContext = createContext<DialogProps | undefined>(undefined);
 
-export const useSideBar = create<DialogProps>((set) => ({
-  isOpen: false,
-  onOpen: () => set({ isOpen: true }),
-  onClose: () => set({ isOpen: false }),
-  data: {},
-  setData: (data) => set({ data: { data } }),
-}));
+const DialogProvider = ({ children }: { children: ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState<any>({});
+
+  const onOpen = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
+  return (
+    <DialogContext.Provider value={{ isOpen, onOpen, onClose, data, setData }}>
+      {children}
+    </DialogContext.Provider>
+  );
+};
+
+const useDialog = (): DialogProps => {
+  const context = useContext(DialogContext);
+  if (!context) {
+    throw new Error("useDialog must be used within a DialogProvider");
+  }
+  return context;
+};
+
+export { DialogProvider, useDialog };

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { FeatureSectionProps } from "@/lib/interfaces";
 import Image from "next/image";
 export function FeatureSection({
@@ -8,8 +9,8 @@ export function FeatureSection({
   return (
     <div className="">
       {data && (
-        <div className="flex-1 bg-primary">
-          <div className="lg:mx-[25%] px-6 py-6 text-center">
+        <div className="flex flex-col  items-center justify-center bg-primary">
+          <div className="lg:mx-[25%] px-6 py-6 text-center max-w-3xl ">
             <h2 className=" text-2xl font-bold mb-6">{data.heading}</h2>
             <p className=" text-gray-500 text-sm ">{data.subHeading}</p>
           </div>
@@ -17,7 +18,7 @@ export function FeatureSection({
             <div className="grid gap-8 md:grid-cols-4">
               {data.features.map((feature) => (
                 <div
-                  key={feature.id}
+                  key={uuidv4()}
                   className="flex flex-col items-center text-center"
                 >
                   <Image

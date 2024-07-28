@@ -7,9 +7,11 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
 import { QuoteDialog } from "./QuoteDialog";
 import { useDialog } from "@/hooks/useDialog";
-import { CustomX } from "./CustomX";
+import { Button } from "../ui/button";
+import { X } from "lucide-react";
 import { MenuProps, HeaderProps } from "@/lib/interfaces";
 export function SidebarMenu({
   menu,
@@ -22,6 +24,7 @@ export function SidebarMenu({
   Readonly<{ setIsSheetOpen: (value: boolean) => void }>) {
   const imageURL = "http://localhost:1337" + data.logoText.icon.url;
   const { onOpen: onOpenDialog } = useDialog();
+
   return (
     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
       <SheetContent
@@ -32,6 +35,7 @@ export function SidebarMenu({
         <SheetHeader className="flex flex-row items-center justify-between mb-6 space-y-0">
           <Link href={data.logoText.url}>
             <Image
+              className="w-auto h-auto"
               alt={data.logoText.name}
               src={imageURL}
               height={40}
@@ -39,12 +43,14 @@ export function SidebarMenu({
             />
           </Link>
           <SheetClose>
-            <CustomX />
+            <Button className="h-7 w-7 p-0 rounded-full" variant="ghost">
+              <X size={15} />
+            </Button>
           </SheetClose>
         </SheetHeader>
         <hr />
         {(menu || []).map((menuItems) => (
-          <div key={menuItems.id} className="">
+          <div key={uuidv4()} className="">
             <p className="font-semibold text-sm block py-3">
               {menuItems.title}
             </p>
@@ -52,7 +58,7 @@ export function SidebarMenu({
               <div className="">
                 {menuItems.subMenuHeadings.map((subMenuHeading) => (
                   <Link
-                    key={subMenuHeading.id}
+                    key={uuidv4()}
                     className="block whitespace-nowrap pl-2 pr-24 py-2 my-1 text-sm hover:bg-slate-300 rounded"
                     href={subMenuHeading.url}
                   >
@@ -64,7 +70,7 @@ export function SidebarMenu({
           </div>
         ))}
         <button className="btn-secondary mt-4" onClick={onOpenDialog}>
-          {data.ctaButton.name}
+          {data.quote.name}
         </button>
         <QuoteDialog />
       </SheetContent>

@@ -10,13 +10,19 @@ interface LinkProps {
   url: string;
 }
 
+interface QuoteProps {
+  id: number;
+  name: string;
+}
+
 export interface HeroSectionProps {
   id: number;
   __component: string;
   heading: string;
   subHeading: string;
   image: ImageProps;
-  ctaButton: LinkProps[];
+  quote: QuoteProps;
+  location: LinkProps;
 }
 
 export interface FeatureProps {
@@ -39,7 +45,7 @@ export interface QuoteSectionProps {
   __component: string;
   heading: string;
   subHeading: string;
-  ctaButton: LinkProps;
+  quote: QuoteProps;
 }
 
 export interface CarouselSectionProps {
@@ -58,11 +64,7 @@ export interface HeaderProps {
       icon: ImageProps;
       url: string;
     };
-    ctaButton: {
-      id: number;
-      name: string;
-      url: string;
-    };
+    quote: QuoteProps;
   };
 }
 

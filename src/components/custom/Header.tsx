@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HeaderProps } from "@/lib/interfaces";
 import { MenuProps } from "@/lib/interfaces";
-
+import { v4 as uuidv4 } from "uuid";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Button } from "../ui/button";
 import { MenuIcon } from "lucide-react";
@@ -31,13 +31,13 @@ export function Header({
       setIsSheetOpen(false);
     }
   }, [isDesktop]);
-
   return (
     <div className="bg-primary sticky top-0 z-20">
       <div className="container flex mx-auto items-center py-3 pl-5">
         <div className="flex items-center gap-4">
           <Link href={data.logoText.url}>
             <Image
+              className="w-auto h-auto"
               alt={data.logoText.name}
               src={imageURL}
               height={40}
@@ -61,18 +61,18 @@ export function Header({
         <div className="flex flex-1 items-center justify-end text-sm gap-8">
           {(menu || []).map((menuItems) => (
             <div
-              key={menuItems.id}
+              key={uuidv4()}
               className="hidden md:block cursor-pointer relative group"
             >
               <p className="font-semibold text-sm block py-3">
                 {menuItems.title}
               </p>
               {menuItems.subMenuHeadings.length > 0 && (
-                <div className="cursor-pointer hidden group-hover:block rounded-lg absolute left-2 top-full p-1 bg-[#f2f4ff]">
+                <div className="cursor-pointer hidden group-hover:block rounded-sm absolute left-2 top-full p-1 bg-[#f2f4ff]">
                   {menuItems.subMenuHeadings.map((subMenuHeading) => (
                     <Link
-                      key={subMenuHeading.id}
-                      className="block whitespace-nowrap pl-2 pr-24 py-2 my-1 text-sm hover:bg-slate-300 rounded"
+                      key={uuidv4()}
+                      className="block whitespace-nowrap pl-2 pr-24 py-2 my-1 text-sm hover:bg-slate-300 rounded-sm"
                       href={subMenuHeading.url}
                     >
                       {subMenuHeading.name}
@@ -86,7 +86,7 @@ export function Header({
             className="hidden md:inline-block btn-secondary"
             onClick={onOpenDialog}
           >
-            {data.ctaButton.name}
+            {data.quote.name}
           </button>
           <QuoteDialog />
           <Button

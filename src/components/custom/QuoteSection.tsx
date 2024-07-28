@@ -1,21 +1,20 @@
+"use client";
 import { QuoteSectionProps } from "@/lib/interfaces";
-import Link from "next/link";
-export function QuoteSection({ data }: { readonly data: QuoteSectionProps }) {
-  const {} = data;
+import { useDialog } from "@/hooks/useDialog";
 
+export function QuoteSection({ data }: { readonly data: QuoteSectionProps }) {
+  const { onOpen: onOpenDialog } = useDialog();
   return (
-    <div className="">
-      {data && (
-        <section className="lg:mx-[30%] px-6 my-24 text-center">
-          <h2 className=" text-2xl font-bold mb-6">{data.heading}</h2>
-          <p className=" text-gray-500 text-sm ">{data.subHeading}</p>
-          <div className="my-12">
-            <Link href={`http://localhost:1337${data.ctaButton.url}`}>
-              <button className="btn-primary">{data.ctaButton.name}</button>
-            </Link>
-          </div>
-        </section>
-      )}
+    <div className="flex items-center justify-center">
+      <section className="lg:mx-[30%] px-6 m-24 text-center max-w-3xl space-y-6">
+        <h2 className=" text-2xl font-bold">{data.heading}</h2>
+        <p className=" text-gray-500 text-sm ">{data.subHeading}</p>
+        <div className="my-12">
+          <button className="btn-secondary" onClick={onOpenDialog}>
+            {data.quote.name}
+          </button>
+        </div>
+      </section>
     </div>
   );
 }

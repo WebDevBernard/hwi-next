@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import { FooterProps } from "@/lib/interfaces";
 
@@ -11,7 +11,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
           <p className="md:mb-9 text-sm">{data.subHeading}</p>
           <div className="hidden md:flex justify items-center gap-4">
             <Image
-              className="grayscale"
+              className="grayscale w-auto h-auto"
               alt="HWI LOGO"
               src={`http://localhost:1337${data.icon.url}`}
               height={40}
@@ -29,7 +29,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
           </p>
           <div className="flex gap-9">
             {(data.hoursLocation || []).map((location) => (
-              <div className="" key={location.id}>
+              <div className="" key={uuidv4()}>
                 <p className="md:mt-0  text-gray-300 font-bold mb-4 underline underline-offset-2 decoration-4 decoration-secondary">
                   {location.locationName}
                 </p>
@@ -51,7 +51,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
         <div className="block md:hidden mt-8 text-gray-300">
           <div className="flex justify-center items-center gap-4">
             <Image
-              className=""
+              className="w-auto h-auto"
               alt="HWI LOGO"
               src={`http://localhost:1337${data.icon.url}`}
               height={40}

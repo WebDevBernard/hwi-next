@@ -34,7 +34,10 @@ export async function getHomePageData() {
               },
             },
           },
-          ctaButton: {
+          quote: {
+            populate: true,
+          },
+          location: {
             populate: true,
           },
           carousel: {
@@ -62,7 +65,7 @@ export async function getGlobalData() {
               },
             },
           },
-          ctaButton: {
+          quote: {
             populate: false,
           },
           hamburgerMenu: {

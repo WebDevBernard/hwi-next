@@ -1,6 +1,5 @@
 "use client";
-
-import "react-multi-carousel/lib/styles.css";
+import { v4 as uuidv4 } from "uuid";
 import { CarouselSectionProps } from "@/lib/interfaces";
 import {
   Carousel,
@@ -34,15 +33,15 @@ export function CarouselSection({
             <CarouselContent>
               {data.carousel.data.map((img) => (
                 <CarouselItem
-                  key={img.id}
-                  className="basis-1/2 md:basis-1/3 lg:basis-1/5 flex justify-center"
+                  key={uuidv4()}
+                  className="basis-1/2 md:basis-1/3 lg:basis-1/5 flex justify-center relative w-full h-[80px] select-none"
                 >
                   <Image
-                    className="pointer-events-none"
+                    fill
+                    sizes="150px"
+                    className="pointer-events-none object-contain"
                     alt={img.name || "None"}
                     src={`http://localhost:1337${img.url}`}
-                    height={150}
-                    width={150}
                   />
                 </CarouselItem>
               ))}
