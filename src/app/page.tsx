@@ -1,19 +1,23 @@
 import { getHomePageData } from "@/data/loaders";
 import { HeroSection } from "@/components/custom/HeroSection";
-import { FeatureSection } from "@/components/custom/FeatureSection";
+import { FeaturesSection } from "@/components/custom/FeaturesSection";
 import { QuoteSection } from "@/components/custom/QuoteSection";
 import { CarouselSection } from "@/components/custom/CarouselSection";
 import { v4 as uuidv4 } from "uuid";
+import { ReviewsSection } from "@/components/custom/ReviewsSection";
 function blockRenderer(block: any) {
   switch (block.__component) {
     case "layout.hero-section":
       return <HeroSection key={uuidv4()} data={block} />;
     case "layout.features-section":
-      return <FeatureSection key={uuidv4()} data={block} />;
+      return <FeaturesSection key={uuidv4()} data={block} />;
+    case "layout.reviews-section":
+      return <ReviewsSection key={uuidv4()} data={block} />;
     case "layout.quote-section":
       return <QuoteSection key={uuidv4()} data={block} />;
     case "layout.companies-section":
       return <CarouselSection key={uuidv4()} data={block} />;
+
     default:
       return null;
   }

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroSectionProps } from "@/lib/interfaces";
 import DOMPurify from "isomorphic-dompurify";
-
+import { MapPin } from "lucide-react";
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   const { heading, subHeading, image, location, quote } = data;
   const imageURL = "http://localhost:1337" + image.url;
@@ -27,10 +27,11 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
         ></p>
         <span className="flex flex-col md:flex-row gap-4 mt-4">
           <Link href={"http://localhost:3000/quote"}>
-            <button className="btn-primary no-text-zoom">{quote.name}</button>
+            <button className="btn-primary">{quote.name}</button>
           </Link>
           <Link href={location.url}>
-            <button className="btn-secondary no-text-zoom">
+            <button className="btn-secondary flex items-center gap-2 ">
+              <MapPin size={20} />
               {location.name}
             </button>
           </Link>

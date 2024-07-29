@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .btn-primary {
-  @apply text-nowrap bg-black inline-block px-9 py-2 uppercase cursor-pointer text-white text-sm hover:bg-slate-700;
+  @apply text-nowrap bg-black px-9 h-[36px] uppercase cursor-pointer text-white text-sm hover:bg-slate-700;
 }
 
 .btn-secondary {
-  @apply text-nowrap outline outline-1 outline-black px-9 py-2 uppercase cursor-pointer text-black text-sm hover:text-slate-700;
+  @apply text-nowrap outline outline-1 outline-black px-9 h-[36px] uppercase cursor-pointer text-black text-sm hover:text-slate-700;
 }
 
 .input {

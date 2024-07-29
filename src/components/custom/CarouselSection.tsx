@@ -15,7 +15,7 @@ export function CarouselSection({
   readonly data: CarouselSectionProps;
 }) {
   return (
-    <div className="pb-12 bg-primary">
+    <div className="pb-12">
       {data && (
         <section className="py-6 max-w-screen-xl mx-auto">
           <h2 className="flex mb-12 justify-center items-center text-2xl font-bold">

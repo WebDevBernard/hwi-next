@@ -19,10 +19,10 @@ export function Header({
   const imageURL = "http://localhost:1337" + data.logoText.icon.url;
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const newLogoText = data.logoText.name.split(" ");
-  const shortLogoText =
-    newLogoText.length >= 2
-      ? newLogoText[0] + " " + newLogoText[1]
-      : data.logoText.name;
+  // const shortLogoText =
+  //   newLogoText.length >= 2
+  //     ? newLogoText[0] + " " + newLogoText[1]
+  //     : data.logoText.name;
 
   const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false);
   const { onOpen: onOpenDialog } = useDialog();
@@ -33,7 +33,7 @@ export function Header({
   }, [isDesktop]);
   return (
     <div className="bg-primary sticky top-0 z-20">
-      <div className="container flex mx-auto items-center py-3 pl-5">
+      <div className="container flex mx-auto items-center py-3 pl-5 ">
         <div className="flex items-center gap-4">
           <Link href={data.logoText.url}>
             <Image
@@ -54,7 +54,7 @@ export function Header({
             href={data.logoText.url}
             className="text-xs block uppercase text-nowrap md:hidden tracking-[0.25em]"
           >
-            {shortLogoText}
+            {data.logoText.shortName}
           </Link>
         </div>
 

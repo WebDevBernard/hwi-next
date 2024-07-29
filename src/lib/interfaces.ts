@@ -32,7 +32,7 @@ export interface FeatureProps {
   icon: ImageProps;
 }
 
-export interface FeatureSectionProps {
+export interface FeaturesSectionProps {
   id: number;
   __component: string;
   heading: string;
@@ -61,6 +61,7 @@ export interface HeaderProps {
     logoText: {
       id: number;
       name: string;
+      shortName: string;
       icon: ImageProps;
       url: string;
     };
@@ -84,6 +85,7 @@ interface HoursLocationProps {
   id: number;
   locationName: string;
   address: string;
+  googleMapsLink: string;
   phoneNumber: string;
   monFri: string;
   sat: string;
@@ -92,11 +94,34 @@ interface HoursLocationProps {
 
 export interface FooterProps {
   data: {
-    heading: string;
-    subHeading: string;
+    tagLineHeading: string;
+    tagLineSubHeading: string;
     copyright: string;
     locationHeading: string;
+    addressHeading: string;
+    phoneHeading: string;
+    hoursHeading: string;
     hoursLocation: HoursLocationProps[];
     icon: ImageProps;
   };
+}
+
+interface ReviewProps {
+  name: string;
+  review: string;
+}
+
+export interface ReviewsSectionProps {
+  id: number;
+  __component: string;
+  heading: string;
+  subHeading: string;
+  googleReviewHeading: {
+    id: number;
+    name: string;
+    shortName: string;
+    icon: ImageProps;
+    url: string;
+  };
+  reviews: ReviewProps[];
 }

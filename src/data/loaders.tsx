@@ -34,6 +34,16 @@ export async function getHomePageData() {
               },
             },
           },
+          googleReviewHeading: {
+            populate: {
+              icon: {
+                fields: ["name", "url"],
+              },
+            },
+          },
+          reviews: {
+            populate: true,
+          },
           quote: {
             populate: true,
           },

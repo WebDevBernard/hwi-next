@@ -16,7 +16,7 @@ const config: Config = {
       },
       colors: {
         primary: "#f2f1ee",
-        secondary: "#4478ff",
+        secondary: "#FFFFFF",
         tertiary: "transparent",
         quaternary: "#f2f4ff",
       },
